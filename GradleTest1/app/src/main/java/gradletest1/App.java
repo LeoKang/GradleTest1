@@ -3,6 +3,11 @@
  */
 package gradletest1;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
@@ -10,5 +15,26 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+
+        String driver = "oracle.jdbc.driver.OracleDriver";
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String user = "c##green";
+        String password = "green1234";
+
+        try{
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+
+            String sql = "SELECT * FROM dept";
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()) {
+                System.out.print(rs.getString("deptno") + " ");
+                System.out.print(rs.getString("dname") + " ");
+                System.out.println(rs.getString("loc") + " ");
+            }
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 }
