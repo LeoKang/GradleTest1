@@ -37,6 +37,7 @@ public class App {
                 System.out.print(rs.getString("dname") + " ");
                 System.out.println(rs.getString("loc") + " ");
             }
+            System.out.println("----------------------------");
         } catch (Exception e) {
             e.printStackTrace();
         }
