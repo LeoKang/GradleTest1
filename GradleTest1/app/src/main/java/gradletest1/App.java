@@ -4,6 +4,8 @@
 package gradletest1;
 
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -40,6 +42,12 @@ public class App {
 
         Frame f = new Frame("AWT Test");
         f.setSize(300, 200);
+        f.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
         f.setVisible(true);
     }
 }
