@@ -3,6 +3,7 @@
  */
 package gradletest1;
 
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -21,20 +22,24 @@ public class App {
         String user = "c##green";
         String password = "green1234";
 
-        try{
+        try {
             Class.forName(driver);
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
 
             String sql = "SELECT * FROM dept";
             ResultSet rs = stmt.executeQuery(sql);
-            while(rs.next()) {
+            while (rs.next()) {
                 System.out.print(rs.getString("deptno") + " ");
                 System.out.print(rs.getString("dname") + " ");
                 System.out.println(rs.getString("loc") + " ");
             }
-        }catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
+        Frame f = new Frame("AWT Test");
+        f.setSize(300, 200);
+        f.setVisible(true);
     }
 }
