@@ -27,7 +27,7 @@ public class App {
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
 
-            String sql = "SELECT * FROM dept";
+            String sql = "SELECT deptno, dname, loc FROM dept";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 System.out.print(rs.getString("deptno") + " ");
