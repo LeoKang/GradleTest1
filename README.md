@@ -1,3 +1,3 @@
 # GradleTest1
 
-IntelliJ + gradle
+IntelliJ + gradle + AWT
