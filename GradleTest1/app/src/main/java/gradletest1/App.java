@@ -16,17 +16,20 @@ public class App {
         return "Hello World!";
     }
 
+    public static class DBInfo {
+        public static String driver = "oracle.jdbc.driver.OracleDriver";
+        public static String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        public static String user = "c##green";
+        public static String password = "green1234";
+    }
+
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
 
-        String driver = "oracle.jdbc.driver.OracleDriver";
-        String url = "jdbc:oracle:thin:@localhost:1521:xe";
-        String user = "c##green";
-        String password = "green1234";
-
         try {
-            Class.forName(driver);
-            Connection conn = DriverManager.getConnection(url, user, password);
+//            Class.forName(driver);
+            Class.forName(DBInfo.driver);
+            Connection conn = DriverManager.getConnection(DBInfo.url, DBInfo.user, DBInfo.password);
             Statement stmt = conn.createStatement();
 
             String sql = "SELECT deptno, dname, loc FROM dept";
