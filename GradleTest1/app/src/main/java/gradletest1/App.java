@@ -27,7 +27,6 @@ public class App {
         System.out.println(new App().getGreeting());
 
         try {
-//            Class.forName(driver);
             Class.forName(DBInfo.driver);
             Connection conn = DriverManager.getConnection(DBInfo.url, DBInfo.user, DBInfo.password);
             Statement stmt = conn.createStatement();
