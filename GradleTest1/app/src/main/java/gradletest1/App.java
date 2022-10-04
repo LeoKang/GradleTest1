@@ -39,7 +39,7 @@ public class App {
                 System.out.print(rs.getString("dname") + " ");
                 System.out.println(rs.getString("loc") + " ");
             }
-            System.out.println("----------------------------");
+            System.out.println("- END ---------------------------");
         } catch (Exception e) {
             e.printStackTrace();
         }
