@@ -33,13 +33,13 @@ public class App {
 
             String sql = "SELECT deptno, dname, loc FROM dept";
             ResultSet rs = stmt.executeQuery(sql);
-            System.out.println("----------------------------");
+            System.out.println("- START ---------------------------");
             while (rs.next()) {
                 System.out.print(rs.getString("deptno") + " ");
                 System.out.print(rs.getString("dname") + " ");
                 System.out.println(rs.getString("loc") + " ");
             }
-            System.out.println("----------------------------");
+            System.out.println("- END ---------------------------");
         } catch (Exception e) {
             e.printStackTrace();
         }
